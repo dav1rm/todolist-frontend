@@ -48,7 +48,7 @@ export default class TodoItem extends Component {
           type="submit"
           onClick={() => handleUpdateTodo(todo, { done: !todo.done })}
         >
-          Done
+          {todo.done ? "Undone" : "Done"}
         </button>
         <button type="submit" onClick={() => handleDeleteTodo(todo)}>
           Delete

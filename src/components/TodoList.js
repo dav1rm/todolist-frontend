@@ -19,6 +19,7 @@ export default class TodoList extends Component {
 
     this.setState({ todos: data });
   }
+
   subscribeToEvents = () => {
     const io = socket("http://localhost:3000");
 
@@ -40,15 +41,21 @@ export default class TodoList extends Component {
       });
     });
   };
+
   handleAddTodo = async e => {
     e.preventDefault();
     const { newTodo, todos } = this.state;
-    const { data } = await api.post("/todos", { content: newTodo });
 
-    this.setState({
-      newTodo: "",
-      todos: [data, ...todos]
-    });
+    try {
+      const { data } = await api.post("/todos", { content: newTodo });
+
+      this.setState({
+        newTodo: "",
+        todos: [data, ...todos]
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   handleUpdateTodo = async (todo, campos = {}) => {
@@ -69,10 +76,10 @@ export default class TodoList extends Component {
     const { todos } = this.state;
     try {
       await api.delete(`/todos/${todo._id}`);
+      this.setState({ todos: todos.filter(item => item !== todo) });
     } catch (err) {
       console.log(err);
     }
-    this.setState({ todos: todos.filter(item => item !== todo) });
   };
 
   handleInputChange = e => {
