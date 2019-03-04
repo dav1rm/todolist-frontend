@@ -1,35 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class Header extends Component {
-  state = {
-    newTodo: ""
-  };
+const Header = props => (
+  <div className="header">
+    <form onSubmit={props.handleAddTodo} method="post" id="form">
+      <input
+        type="text"
+        placeholder="What needs to be done?"
+        value={props.newTodo}
+        onChange={props.handleInputChange}
+        onKeyDown={e => e.keyCode !== 13}
+      />
+    </form>
+  </div>
+);
 
-  handleSubmint = e => {
-    if (e.keyCode !== 13) return;
-
-    this.setState({ newTodo: "" });
-    e.preventDefault();
-  };
-
-  handleInputChange = e => {
-    this.setState({ newTodo: e.target.value });
-  };
-
-  render() {
-    return (
-      <div className="header">
-        <form id="form" action="/todos" method="post">
-          <input
-            type="text"
-            name="content"
-            placeholder="What needs to be done?"
-            value={this.state.newTodo}
-            onChange={this.handleInputChange}
-            onKeyDown={this.handleSubmint}
-          />
-        </form>
-      </div>
-    );
-  }
-}
+export default Header;
