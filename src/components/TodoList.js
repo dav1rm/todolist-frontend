@@ -21,7 +21,7 @@ export default class TodoList extends Component {
   }
 
   subscribeToEvents = () => {
-    const io = socket("http://localhost:3000");
+    const io = socket(process.env.REACT_APP_API_URL);
 
     io.on("todoUpdate", data => {
       this.setState({
