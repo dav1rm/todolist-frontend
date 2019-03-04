@@ -55,10 +55,10 @@ export default class TodoList extends Component {
     const { todos } = this.state;
 
     try {
-      await api.put(`/todos/${todo._id}`, campos);
+      const { data } = await api.put(`/todos/${todo._id}`, campos);
 
       this.setState({
-        todos: todos.map(item => (item === todo ? { ...item, campos } : item))
+        todos: todos.map(item => (item === todo ? data : item))
       });
     } catch (err) {
       console.log(err);
