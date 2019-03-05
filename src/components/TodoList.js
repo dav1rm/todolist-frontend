@@ -46,6 +46,11 @@ export default class TodoList extends Component {
     e.preventDefault();
     const { newTodo, todos } = this.state;
 
+    if (newTodo.trim().length === 0) {
+      alert("Valor do campo inválido");
+      return;
+    }
+
     try {
       const { data } = await api.post("/todos", { content: newTodo });
 
