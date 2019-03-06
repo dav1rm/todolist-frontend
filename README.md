@@ -1,68 +1,40 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# TODOList Frontend
 
-## Available Scripts
+Esta single page application foi desenvolvida utilizando ReactJS e está consumindo a api rest [TODOLIST_BACKEND](https://github.com/davir8/todolist-backend) juntamente com o aplicativo [TODOLIST_MOBILE](https://github.com/davir8/todolist-mobile) desenvolvido com React Native
 
-In the project directory, you can run:
+# Como rodar o projeto
+**Primeiramente é necessário ter instalado o NodeJS e a API REST funcionando.**
 
-### `npm start`
+Feito isso, vamos baixar o projeto utilizando `git clone git@github.com:davir8/todolist-frontend.git`. Logo após, vamos acessar pasta do projeto com `cd todolist-frontend/` e instalar todas as dependências através do comando `npm install`. 
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Depois de instaladas as dependências, é necessário rodar o servidor nodejs usando `npm start`. Se tudo ocorrer bem, já será possível acessar a página através do endereço padrão `http://localhost:3000`.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
+## O que foi feito no Projeto TODO List
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- No backend:
+	- CRUD de TODOs usando NodeJS;
+	- Utilização do [socketio](https://github.com/socketio/socket.io) para uso do real time nas funcionalidades de cadastro, edição e remoção de TODO;
+	- Utilização do banco de dados noSQL [MongoDB](https://www.mongodb.com/) para persistir os dados;
+	- Boas práticas no código usando [prettier](https://prettier.io/) e [eslint](https://eslint.org/);
+	- Hospedagem no [Heroku](https://todolist-backend-node.herokuapp.com/).
 
-### `npm run build`
+- No frontend:
+	- CRUD de TODOs usando ReactJS;
+	- Utilização do [cliente socketio](https://github.com/socketio/socket.io-client) para uso do real time nas funcionalidades de cadastro, edição e remoção de TODO;
+	- Filtragem do número total de TODOs e de TODOs finalizadas;
+	- Boas práticas no codigo usando [prettier](https://prettier.io/) e [eslint](https://eslint.org/);
+	- Hospedagem no [Heroku](https://todolist-frontend-react.herokuapp.com/).
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- No mobile:
+	- CRUD de TODOs usando ReactNative;
+	- Utilização do [cliente socketio](https://github.com/socketio/socket.io-client) para uso do real time nas funcionalidades de cadastro, edição e remoção de TODO;
+	- Filtragem do número total de TODOs e de TODOs finalizadas;
+	- Boas práticas no codigo usando [prettier](https://prettier.io/) e [eslint](https://eslint.org/).
+	
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## O que não foi feito no Projeto TODO List
+Dos itens obrigatórios (item A, B e K) não foram feitos os seguintes itens:
+- Não foi utilizado JSF (item A), pois pelo que foi pesquisado é uma tecnologia para desenvolver interface web e não api rest. Dessa forma foi escolhido o NodeJS como backend, pois já utiliza uma linguagem conhecida: o javascript.
+- Não foi criado o aplicativo mobile usando flutter (item K), pois é uma tecnologia nova que utiliza uma linguagem de programação nova e seria inviável estudá-la e construir o projeto a tempo. Deste modo, optou-se por usar o ReactNative visto que já seria utilizado ReactJS no frontend e assim, seria possível reaproveitar bastante conhecimento entre as ferramentas.
+- Além disso, não foi feito a funcionalidade avançada de filtragem de TODOs.
